@@ -1,15 +1,12 @@
 import { useNavigate, Navigate } from "react-router-dom"
+import NavBar from "../components/NavBar";
+import Header from "../components/Header";
 
 export default function HomePage() {
-    const navigate = useNavigate();
-
-    function handleClick() {
-        alert("Hello");
-      navigate("/login");
-    }
     return <>
     <div>
-        <p onClick={handleClick}>HomePage</p>
+        <Header></Header>
+        <NavBar></NavBar>
     </div>
     </>
 }
