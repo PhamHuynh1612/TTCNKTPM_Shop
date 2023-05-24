@@ -1,7 +1,9 @@
+import Footer from "../components/Footer"
+
 export default function SignUpPage() {
     return <>
-    <div>
-        
-    </div>
+        <div>
+            
+        </div>
     </>
 }
