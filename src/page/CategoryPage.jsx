@@ -1,9 +1,11 @@
- import Header from "../components/Header"
+import Header from "../components/Header";
 
 export default function CategoryPage() {
-    return <>
-    <div>
+  return (
+    <>
+      <div>
         <Header></Header>
-    </div>
+      </div>
     </>
+  );
 }
