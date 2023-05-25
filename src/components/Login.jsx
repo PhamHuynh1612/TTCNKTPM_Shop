@@ -1,24 +1,29 @@
 import { useRef } from 'react'
 import { json } from 'react-router'
+import {  saveSession} from "../authentication/Login"
 import '../styles/login.css'
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
+    const navigate = useNavigate();
     async function login() {
         let email = emailRef.current.value
         let password = passwordRef.current.value
-        console.log(email)
-        console.log(password)
-        let result = await fetch("http://localhost:8080/user/login", {
-            method: "POST",
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: {
-                "email": email,
-                "phoneNumber": email,
-                "password": password,
-            },
-        }).then(r => console.log(r))
+        let response =
+            await fetch("http://localhost:8080/user/login", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: "email=" + email + "&phoneNumber=" + email + "&password=" + password,
+            })
+        let user = await response.json()
+        if(user != undefined || user != null) {
+            saveSession(user)
+
+            navigate("/")
+        }
+
     }
 
 

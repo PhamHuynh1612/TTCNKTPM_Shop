@@ -1,6 +1,7 @@
 import "../styles/header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
+import { useState, useEffect } from 'react'
 import Divider from "@mui/joy/Divider";
 import Input from "@mui/joy/Input";
 import Select from "@mui/joy/Select";
@@ -17,9 +18,22 @@ import {
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { getSession, removeSession } from "../authentication/Login";
 
 export default function Header() {
   const endDecorator = <i class="fa-sharp fa-solid fa-magnifying-glass"></i>;
+  const [user, setUser] = useState()
+  useEffect(() => {
+    let user = getSession()
+    setUser(user)
+    console.log(user);
+  }, [])
+
+  const logout = () => {
+      removeSession()
+      setUser(null)
+  }
+
   return (
     <>
       {/* <div class="container-fluid" className="container">
@@ -71,11 +85,13 @@ export default function Header() {
             <Input endDecorator={endDecorator} placeholder="Search"></Input>
           </Col>
           <Col className="user-infor">
-            <i class="fa-solid fa-user fa-xl"></i>
-            <div className="user-login-option">
-              <a href="/login">Login</a>
-              <a href="/signup">Sign Up</a>
-            </div>
+            <a href="/userinfor"><i class="fa-solid fa-user fa-xl"></i></a>
+            {
+              (user == null || user == undefined) ? <div className="user-login-option">
+                <a href="/login">Login</a>
+                <a href="/signup">Sign Up</a>
+              </div> : <>{user.name}</>
+            }
           </Col>
           <Col className="cart">
             <a
@@ -85,6 +101,16 @@ export default function Header() {
               <i class="fa-solid fa-cart-shopping fa-xl"></i>
               <p>Cart</p>
             </a>
+          </Col>
+          <Col className="cart">
+            {
+              user && <><a
+              style={{ color: "black", textDecoration: "none" }}
+            >
+              <i class="fa-solid fa-arrow-right-from-bracket" onClick={logout}></i>
+              <p>Logout</p>
+            </a></>
+            }
           </Col>
           <Col></Col>
         </Row>

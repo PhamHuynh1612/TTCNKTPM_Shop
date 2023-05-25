@@ -9,6 +9,7 @@ import {
   RouterProvider,
   Routes,
 }from "react-router-dom";
+import {  getSession } from "./authentication/Login"
 
 
 
@@ -17,27 +18,18 @@ import LoginPage from './page/LoginPage';
 import SignUpPage from './page/SignUpPage';
 import CategoryPage from './page/CategoryPage';
 import { useEffect, useState } from 'react';
+import { set } from 'store';
+import UserInforPage from './page/UserInforPage';
 
 
 
 
 function App() {
-  const [user, setUser] = useState([])
-  const getApiData = async () => {
-    fetch(
-      "http://localhost:8080/user/all",
-      {
-        headers: {'Content-Type': 'application/json',  },
-        method : "GET"
-      }
-    ).then(respose => respose.json())
-    .then(json=> {
-      setUser([...user, json])
-    })
-  };
-
+  const [user, setUser] = useState()
   useEffect(() => {
-    getApiData();
+    let user = getSession()
+    setUser(user)
+    console.log(user);
   }, []);
 
   return (
@@ -52,6 +44,7 @@ function App() {
         <Route exact path='/login' element={LoginPage()}></Route>
         <Route exact path='/signup' element={SignUpPage()}></Route>
         <Route exact path='/category' element={CategoryPage()}></Route>
+        <Route exact path='/userinfor' element={UserInforPage()}></Route>
       </Routes>
     </div>
   );

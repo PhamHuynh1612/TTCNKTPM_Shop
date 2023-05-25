@@ -1,12 +1,12 @@
-import {get, set} from 'store'
+
 export  function saveSession(user) {
-    set('user', user)
+    window.localStorage.setItem('user', JSON.stringify(user))
 }
 
 export  function removeSession() {
-    set('user', null)
+    window.localStorage.setItem('user', null)
 }
 
-export function getUser() {
-    return get('user');
+export function getSession() {
+    return JSON.parse(window.localStorage.getItem('user'))
 }

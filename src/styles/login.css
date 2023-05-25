@@ -4,18 +4,19 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    font-family: Roboto;
 }
 
 .header-login > a {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-decoration: none;
+    align-items: center;
 }
 
 .header-login > a > p {
     font-size: 32px;
     font-weight: 700;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .header-login > a > img {
@@ -35,10 +36,11 @@
     align-items: center;
     margin: auto;
     width: 450px;
-    height: 400px;
+    height: 450px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 0 1px #ccc;
+    font-family: Roboto;
 }
 
 .form-login .title-form {

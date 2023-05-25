@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px 420px 0 420px;
+    min-width: 100%;
+    height: 100%;
+}
+
+.edit-profile-title {
+    font-family: "Roboto";
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.input {
+    min-width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+
+}
+
+.button-row {
+    display: flex;
+    width: 720px;
+    gap: 30px;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: start;
+}
+
+.cancel-button {
+    padding: 12px 48px;
+    color: #08E1FF;
+    font-family: "Roboto";
+    background-color: transparent;
+    font-size: 22px;
+    border: 3px solid #08E1FF;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.save-button {
+    padding: 12px 48px;
+    background-color: #08E1FF;
+    font-family: "Roboto";
+    color: white;
+    font-size: 22px;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    font-weight: 600;
+}
+

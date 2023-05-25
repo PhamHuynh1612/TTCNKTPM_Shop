@@ -1,6 +1,6 @@
 .nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 0 128px;
+    justify-content: space-around;
+    margin: 0 128px;
 }
