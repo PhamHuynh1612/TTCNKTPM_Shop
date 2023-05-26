@@ -107,7 +107,7 @@ export default function Header() {
               user && <><a
               style={{ color: "black", textDecoration: "none" }}
             >
-              <i class="fa-solid fa-arrow-right-from-bracket" onClick={logout}></i>
+              <i className="fa-solid fa-arrow-right-from-bracket " onClick={logout}></i>
               <p>Logout</p>
             </a></>
             }
