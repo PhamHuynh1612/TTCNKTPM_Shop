@@ -1,7 +1,7 @@
 import "../styles/header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import Divider from "@mui/joy/Divider";
 import Input from "@mui/joy/Input";
 import Select from "@mui/joy/Select";
@@ -22,17 +22,17 @@ import { getSession, removeSession } from "../authentication/Login";
 
 export default function Header() {
   const endDecorator = <i class="fa-sharp fa-solid fa-magnifying-glass"></i>;
-  const [user, setUser] = useState()
+  const [user, setUser] = useState();
   useEffect(() => {
-    let user = getSession()
-    setUser(user)
+    let user = getSession();
+    setUser(user);
     console.log(user);
-  }, [])
+  }, []);
 
   const logout = () => {
-      removeSession()
-      setUser(null)
-  }
+    removeSession();
+    setUser(null);
+  };
 
   return (
     <>
@@ -85,13 +85,17 @@ export default function Header() {
             <Input endDecorator={endDecorator} placeholder="Search"></Input>
           </Col>
           <Col className="user-infor">
-            <a href="/userinfor"><i class="fa-solid fa-user fa-xl"></i></a>
-            {
-              (user == null || user == undefined) ? <div className="user-login-option">
+            <a href="/userinfor">
+              <i class="fa-solid fa-user fa-xl"></i>
+            </a>
+            {user == null || user == undefined ? (
+              <div className="user-login-option">
                 <a href="/login">Login</a>
                 <a href="/signup">Sign Up</a>
-              </div> : <>{user.name}</>
-            }
+              </div>
+            ) : (
+              <>{user.name}</>
+            )}
           </Col>
           <Col className="cart">
             <a
@@ -103,14 +107,17 @@ export default function Header() {
             </a>
           </Col>
           <Col className="cart">
-            {
-              user && <><a
-              style={{ color: "black", textDecoration: "none" }}
-            >
-              <i className="fa-solid fa-arrow-right-from-bracket " onClick={logout}></i>
-              <p>Logout</p>
-            </a></>
-            }
+            {user && (
+              <>
+                <a style={{ color: "black", textDecoration: "none" }}>
+                  <i
+                    className="fa-solid fa-arrow-right-from-bracket "
+                    onClick={logout}
+                  ></i>
+                  <p>Logout</p>
+                </a>
+              </>
+            )}
           </Col>
           <Col></Col>
         </Row>
