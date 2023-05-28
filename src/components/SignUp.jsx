@@ -13,17 +13,17 @@ export default function SignUp() {
         let rePassword = rePasswordRef.current.value
 
         if (email == "") {
-            alert("Email/số điện thoại không hợp lệ!")
+            alert("Email/số điện thoại không được để trống!")
             return
         }
 
         if (password == "" || password.length < 6) {
-            alert("Mật khẩu không hợp lệ!")
+            alert("Mật khẩu không được để trống!")
             return
         }
 
         if (rePassword != password) {
-            alert("Mật khẩu nhập lại chưa chính xác!")
+            alert("Mật khẩu chưa trùng khớp!")
             return
         }
 
