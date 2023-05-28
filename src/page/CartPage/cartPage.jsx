@@ -4,10 +4,17 @@ import NavBar from "../../components/NavBar";
 
 import React, { useState } from "react";
 import "./cartPage.scss";
+
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Table from "react-bootstrap/Table";
+import { MdDeleteForever } from "react-icons/md";
+import { AiOutlineMinus } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
+
+import { colors } from "@mui/joy";
+
 export default function CartPage() {
   const [show, setShow] = useState(false);
 
@@ -20,54 +27,59 @@ export default function CartPage() {
       SoLuong: "10",
       GiaTien: "100.000",
     },
+    {
+      name: "Tên 1",
+      image: "",
+      SoLuong: "10",
+      GiaTien: "100.000",
+    },
   ];
+  const tangSL = () => {};
   return (
     <div>
       <Header></Header>
       <NavBar></NavBar>
       <h1>Giỏ hàng của bạn</h1>
-      <div>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Tên sản phẩm</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map((item) => (
+            <tr key={item.name}>
+              <td>
+                <Form.Check aria-label="option 1" />
+              </td>
+              <td>{item.name}</td>
+
+              <td>{item.GiaTien}</td>
+              <td>
+                <button onClick={() => tangSL()}>
+                  <AiOutlineMinus></AiOutlineMinus>
+                </button>
+                <input style={{ width: "40px" }}></input>
+                <button>
+                  <AiOutlinePlus></AiOutlinePlus>
+                </button>
+              </td>
+              <td>
+                <MdDeleteForever style={{ color: "red" }}></MdDeleteForever>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      <div style={{ position: "fixed" }}>
+        <label>Tổng số lượng: </label>
         <button onClick={() => setShow(true)} className="btn-modal">
           Thanh toán
         </button>
-      </div>
-      <div>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Tên sản phẩm</th>
-              <th>Đơn giá</th>
-              <th>Số lượng</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tableData.map((item) => (
-              <tr key={item.name}>
-                <td>{item.name}</td>
-
-                <td>{item.GiaTien}</td>
-                <td>{item.SoLuong}</td>
-              </tr>
-            ))}
-            {/* <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td colSpan={2}>Larry the Bird</td>
-              <td>@twitter</td>
-            </tr> */}
-          </tbody>
-        </Table>
       </div>
       {show && (
         <Modal
@@ -90,7 +102,7 @@ export default function CartPage() {
               >
                 <Form.Label>Họ và tên</Form.Label>
                 <Form.Control
-                  type="email"
+                  type="text"
                   placeholder="Nhập họ và tên"
                   autoFocus
                 />
@@ -108,7 +120,7 @@ export default function CartPage() {
               >
                 <Form.Label>Địa chỉ nhận hàng</Form.Label>
                 <Form.Control
-                  type="email"
+                  type="text"
                   placeholder="Nhập địa chỉ"
                   autoFocus
                 />
