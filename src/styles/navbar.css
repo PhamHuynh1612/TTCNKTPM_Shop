@@ -1,6 +1,7 @@
 .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 128px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 128px;
+  background-color: aquamarine;
 }
