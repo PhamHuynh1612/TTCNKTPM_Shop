@@ -23,13 +23,11 @@ export default function CartPage() {
   const tableData = [
     {
       name: "Tên 1",
-      image: "",
       SoLuong: "10",
       GiaTien: "100.000",
     },
     {
       name: "Tên 1",
-      image: "",
       SoLuong: "10",
       GiaTien: "100.000",
     },
