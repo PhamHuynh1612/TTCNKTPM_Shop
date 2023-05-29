@@ -16,10 +16,13 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { colors } from "@mui/joy";
 
 export default function CartPage() {
-  const [show, setShow] = useState(false);
+  const [showModalThanhToan, setShowModalThanhToan] = useState(false);
+  const handleCloseModalThanhToan = () => setShowModalThanhToan(false);
+  const handleShowModalThanhToan = () => setShowModalThanhToan(true);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [showModalXoa, setShowModalXoa] = useState(false);
+  const handleCloseModalXoa = () => setShowModalXoa(false);
+  const handleShowModalXoa = () => setShowModalXoa(true);
   const tableData = [
     {
       name: "Tên 1",
@@ -32,7 +35,7 @@ export default function CartPage() {
       GiaTien: "100.000",
     },
   ];
-  const tangSL = () => {};
+
   return (
     <div>
       <Header></Header>
@@ -50,7 +53,7 @@ export default function CartPage() {
         </thead>
         <tbody>
           {tableData.map((item) => (
-            <tr key={item.name}>
+            <tr style={{ height: "10px" }} key={item.name}>
               <td>
                 <Form.Check aria-label="option 1" />
               </td>
@@ -58,31 +61,55 @@ export default function CartPage() {
 
               <td>{item.GiaTien}</td>
               <td>
-                <button onClick={() => tangSL()}>
-                  <AiOutlineMinus></AiOutlineMinus>
-                </button>
-                <input style={{ width: "40px" }}></input>
-                <button>
-                  <AiOutlinePlus></AiOutlinePlus>
-                </button>
+                <input type="number" min={1} style={{ width: "60px" }}></input>
               </td>
               <td>
-                <MdDeleteForever style={{ color: "red" }}></MdDeleteForever>
+                <MdDeleteForever
+                  onClick={handleShowModalXoa}
+                  style={{ color: "red" }}
+                ></MdDeleteForever>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
-      <div style={{ position: "fixed" }}>
-        <label>Tổng số lượng: </label>
-        <button onClick={() => setShow(true)} className="btn-modal">
+      {/* style={{ position: "fixed" }} */}
+      <div>
+        <button
+          style={{ width: "150px", height: "50px" }}
+          onClick={() => setShowModalThanhToan(true)}
+          className="btn-modal"
+        >
           Thanh toán
         </button>
       </div>
-      {show && (
+      <Modal
+        show={showModalXoa}
+        onHide={handleCloseModalXoa}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Bạn có muốn bỏ sản phẩm này.</Modal.Body>
+        <Modal.Footer>
+          <Button
+            style={{ width: "70px", height: "50px" }}
+            variant="secondary"
+            onClick={handleCloseModalXoa}
+          >
+            Không
+          </Button>
+          <Button style={{ width: "70px", height: "50px" }} variant="primary">
+            Có
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      {showModalThanhToan && (
         <Modal
-          show={show}
-          onHide={handleClose}
+          show={showModalThanhToan}
+          onHide={handleCloseModalThanhToan}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
@@ -133,10 +160,17 @@ export default function CartPage() {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button
+              style={{ width: "70px", height: "50px" }}
+              variant="secondary"
+              onClick={handleCloseModalThanhToan}
+            >
               Huỷ
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button
+              style={{ width: "150px", height: "50px" }}
+              variant="primary"
+            >
               Xác nhận thông tin
             </Button>
           </Modal.Footer>
