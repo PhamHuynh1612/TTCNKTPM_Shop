@@ -43,7 +43,7 @@ function App() {
         <Route exact path="/category" element={CategoryPage()}></Route>
         <Route exact path="/contact" element={ContactPage()}></Route>
         <Route path="/product/:productId" element={<ProductInfo/>}></Route>
-        <Route exact path="/userinfor" element={UserInforPage()}></Route>
+        <Route exact path="/userinfor" element={UserInforPage()}></Route> 
       </Routes>
     </div>
   );
