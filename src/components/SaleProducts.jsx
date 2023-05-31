@@ -13,7 +13,6 @@ export default function SaleProduct() {
         const response = await fetch("http://localhost:8080/product/sale", {
             method: "GET",
         })
-
         const data = await response.json()
         setSaleProducts(data)
     }

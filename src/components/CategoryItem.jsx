@@ -6,7 +6,7 @@ export default function CategoryItem(props) {
     return (
         <>
             <div className="category-item">
-                <button><p>{props.name}</p></button>
+                <button onClick={props.onClick}><p>{props.name}</p></button>
             </div>
         </>
     )
