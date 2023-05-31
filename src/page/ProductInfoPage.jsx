@@ -5,6 +5,7 @@ import Header from "../components/Header"
 import NavBar from "../components/NavBar"
 
 import "../styles/container.css"
+import "../styles/productInfo.css"
 
 
 export default function ProductInfo() {
@@ -32,13 +33,18 @@ export default function ProductInfo() {
             <NavBar></NavBar>
 
             <div className="set-container">
-                <div className="product-info padding-top-div padding-bottom-div">
-                    <div className="img-product">
-                        <img src={productData.displayImage}></img>
-                    </div>
-
+                <div className="padding-top-div padding-bottom-div">
                     <div className="product-info">
+                            <div className="img-product">
+                                <img src={productData.displayImage}></img>
+                            </div>
 
+                            <div className="info">
+                                <p className="product-name">{productData.name}</p>
+                                <p className="price-item">Giá bán: {productData.price}đ</p>
+                                <p>Số lượng: {productData.quantity}</p>
+                                <p className="product-description">Mô tả: {productData.description}</p>
+                            </div>
                     </div>
                 </div>
             </div>

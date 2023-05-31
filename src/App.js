@@ -19,7 +19,7 @@ import ProductPage from "./page/ProductPage";
 import { useEffect, useState } from "react";
 import { set } from "store";
 import UserInforPage from "./page/UserInforPage";
-import ContactPage from "./page/CartPage/ContactPage";
+import ContactPage from "./page/ContactPage";
 import ProductInfo from "./page/ProductInfoPage";
 
 function App() {

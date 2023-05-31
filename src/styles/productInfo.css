@@ -1,12 +1,37 @@
 .product-info {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    background-color: #fff;
 }
 
 .img-product {
     width: 40%;
+    border-right: 1px solid whitesmoke;
 }
 
-.product-info {
+.img-product > img {
+    width: 90%;
+    padding: 30px;
+}
+
+.info {
     width: 60%;
+    text-align: start;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info > p {
+    padding: 0px 0;
+}
+
+.product-name {
+    font-size: 14pt;
+    font-weight: 600;
+}
+
+.product-description {
+    text-align: justify;
 }
