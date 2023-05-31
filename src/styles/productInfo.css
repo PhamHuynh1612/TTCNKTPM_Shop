@@ -1,0 +1,12 @@
+.product-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.img-product {
+    width: 40%;
+}
+
+.product-info {
+    width: 60%;
+}

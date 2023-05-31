@@ -26,18 +26,20 @@ export default function UserInfor() {
 
     return <>
 
-        <div className="container">
-            {user && <><p className="edit-profile-title" >Edit profile</p>
-            <InputRow title={"Name"} defaultValue={user?.name} innerRef={nameRef} ></InputRow>
-            <InputRow title={"Email"} defaultValue={user?.email} innerRef={emailRef} ></InputRow>
-            <InputRow title={"Address"} defaultValue={user?.address} innerRef={addressRef} ></InputRow>
-            <InputRow title={"Phone Number"} defaultValue={user?.phone_number} innerRef={phoneNumberRef} ></InputRow>
-            <InputRow title={"Password"} isPassword={true} innerRef={passwordRef} ></InputRow>
-            <div className="button-row">
-                <button className="cancel-button" onClick={changeUserInfo}>Cancel</button>
-                <button className="save-button">Save</button>
+        <div className="set-container">
+            <div className="container">
+                {user && <><p className="edit-profile-title" >Edit profile</p>
+                    <InputRow title={"Name"} defaultValue={user?.name} innerRef={nameRef} ></InputRow>
+                    <InputRow title={"Email"} defaultValue={user?.email} innerRef={emailRef} ></InputRow>
+                    <InputRow title={"Address"} defaultValue={user?.address} innerRef={addressRef} ></InputRow>
+                    <InputRow title={"Phone Number"} defaultValue={user?.phone_number} innerRef={phoneNumberRef} ></InputRow>
+                    <InputRow title={"Password"} isPassword={true} innerRef={passwordRef} ></InputRow>
+                    <div className="button-row">
+                        <button className="cancel-button" onClick={changeUserInfo}>Cancel</button>
+                        <button className="save-button">Save</button>
 
-            </div></>}
+                    </div></>}
+            </div>
         </div>
     </>
 }
@@ -47,7 +49,7 @@ export function InputRow(props) {
         <div className="input">
             <FormControl  >
                 <FormLabel style={{ fontSize: 26, fontWeight: 600 }}>{props.title}</FormLabel>
-                <div style={{ width: 720 }}><Input slotProps={{ input: { ref: props.innerRef } }} type={props.isPassword != undefined ? "password" : "text"} defaultValue={props.defaultValue}  fullWidth={true} size={'lg'} /></div>
+                <div style={{ width: 720 }}><Input slotProps={{ input: { ref: props.innerRef } }} type={props.isPassword != undefined ? "password" : "text"} defaultValue={props.defaultValue} fullWidth={true} size={'lg'} /></div>
             </FormControl>
         </div>
     );

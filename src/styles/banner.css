@@ -1,0 +1,16 @@
+.slider {
+    width: 100%;
+    background-color: #fff;
+    padding-bottom: 30px;
+    height: 300px;
+}
+
+.slider-img {
+    width: 100%;
+    height: 86%;
+}
+
+.slider-img > img {
+    width: 100%;
+    height: 100%;
+}

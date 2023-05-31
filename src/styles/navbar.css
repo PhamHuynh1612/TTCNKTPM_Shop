@@ -1,7 +1,29 @@
 .nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 0 128px;
-  background-color: aquamarine;
+  justify-content: space-between;
+  margin: auto;
+  height: 40px;
+  line-height: 40px;
+  width: 83%;
+}
+
+.nav-item {
+  width: 20%;
+}
+
+.nav-item:hover {
+  background-color: aqua;
+}
+
+.nav-item>a {
+  text-decoration: none;
+  font-size: 13pt;
+  color: #000;
+  display: inline-block;
+  width: 100%;
+}
+
+.nav-item > a:hover {
+  color: #000;
 }

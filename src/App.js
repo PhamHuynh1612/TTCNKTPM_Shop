@@ -16,23 +16,17 @@ import LoginPage from "./page/LoginPage";
 import SignUpPage from "./page/SignUpPage";
 import CategoryPage from "./page/CategoryPage";
 import ProductPage from "./page/ProductPage";
-import AdminPage from "./page/AdminPage";
-import BannerPage from "./components/Banner";
-import LGPage from "./page/LG";
-import HPPage from "./page/HP";
-import AsusPage from "./page/Asus";
-import MsiPage from "./page/Msi";
-import DellPage from "./page/Dell";
 import { useEffect, useState } from "react";
 import { set } from "store";
 import UserInforPage from "./page/UserInforPage";
+import ContactPage from "./page/CartPage/ContactPage";
+import ProductInfo from "./page/ProductInfoPage";
 
 function App() {
   const [user, setUser] = useState();
   useEffect(() => {
     let user = getSession();
     setUser(user);
-    console.log(user);
   }, []);
 
   return (
@@ -45,15 +39,10 @@ function App() {
 
         <Route exact path="/login" element={LoginPage()}></Route>
         <Route exact path="/signup" element={SignUpPage()}></Route>
-        <Route exact path="/category" element={CategoryPage()}></Route>
         <Route exact path="/product" element={ProductPage()}></Route>
-        <Route exact path="/admin" element={AdminPage()}></Route>
-        <Route exact path="/banner" element={BannerPage()}></Route>
-        <Route exact path="/lg" element={LGPage()}></Route>
-        <Route exact path="/hp" element={HPPage()}></Route>
-        <Route exact path="/asus" element={AsusPage()}></Route>
-        <Route exact path="/msi" element={MsiPage()}></Route>
-        <Route exact path="/dell" element={DellPage()}></Route>
+        <Route exact path="/category" element={CategoryPage()}></Route>
+        <Route exact path="/contact" element={ContactPage()}></Route>
+        <Route path="/product/:productId" element={<ProductInfo/>}></Route>
         <Route exact path="/userinfor" element={UserInforPage()}></Route>
       </Routes>
     </div>

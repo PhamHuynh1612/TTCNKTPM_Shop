@@ -39,8 +39,6 @@ export default function SignUp() {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: body
         })
-
-
     }
 
     return <>

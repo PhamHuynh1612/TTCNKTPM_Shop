@@ -26,7 +26,6 @@ export default function Header() {
   useEffect(() => {
     let user = getSession();
     setUser(user);
-    console.log(user);
   }, []);
 
   const logout = () => {
