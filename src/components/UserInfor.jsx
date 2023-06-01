@@ -20,8 +20,47 @@ export default function UserInfor() {
         setUser(user)
     }, [])
 
-    function changeUserInfo() {
-        console.log(nameRef.current.value);
+    async function changeUserInfo() {
+        let id = user.id;
+        let name = nameRef.current.value;
+        let email = emailRef.current.value;
+        let address = addressRef.current.value;
+        let phoneNumber = phoneNumberRef.current.value;
+        let password = passwordRef.current.value;
+
+        console.log( {
+            "id" : id,
+            "name" : String(name),
+            "email" : String(email),
+            "password" : String(password),
+            "address" : String(address),
+            "phoneNumber" : String(phoneNumber),
+            "active" : 1
+        });
+
+        const response = await fetch("http://localhost:8080/user/edit", {
+            method: "POST",
+            headers : {'Content-Type': 'text/plain'},
+            body : JSON.stringify({
+                "id" : id,
+                "name" : String(name),
+                "email" : String(email),
+                "password" : String(password),
+                "address" : String(address),
+                "phoneNumber" : String(phoneNumber),
+                "active" : 1
+            })
+             },)
+        
+        try {
+            let data = await response.json()
+            console.log(data);
+        } catch(e) {
+            console.log(e);
+        }
+
+
+
     }
 
     return <>
@@ -36,7 +75,7 @@ export default function UserInfor() {
                     <InputRow title={"Password"} isPassword={true} innerRef={passwordRef} ></InputRow>
                     <div className="button-row">
                         <button className="cancel-button" onClick={changeUserInfo}>Cancel</button>
-                        <button className="save-button">Save</button>
+                        <button className="save-button" onClick={changeUserInfo}>Save</button>
 
                     </div></>}
             </div>

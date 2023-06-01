@@ -1,6 +1,9 @@
 .category-page-all {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    padding: 30px 15%;
+    background-color: whitesmoke;
 }
 
 .list-category {
@@ -11,6 +14,7 @@
     flex-direction: column;
     align-items: start;
     justify-content: start;
+    width: 20%;
 }
 
 .category-item {
@@ -32,4 +36,5 @@
 
 .list-product-category {
     width: 80%;
+    padding-left: 20px;
 }

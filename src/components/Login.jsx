@@ -15,12 +15,13 @@ export default function Login() {
             await fetch("http://localhost:8080/user/login", {
                 method: "POST",
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: "email=" + email + "&phoneNumber=" + email + "&password=" + password,
+                // body: "email=" + email + "&phoneNumber=" + email + "&password=" + password,
+                body: "email=\"" + email + "\"&phoneNumber=\"" + email + "\"&password=\"" + password + "\"",
             })
         let user = await response.json()
+        console.log(user);
         if(user != undefined || user != null) {
             saveSession(user)
-
             navigate("/")
         }
 

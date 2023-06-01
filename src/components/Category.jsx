@@ -60,16 +60,16 @@ export default function Category() {
 
     return (
         <>
-            <div className="set-container category-page-all"  style={{ display: 'flex', flexDirection: 'row' , height : window.screen.height, padding : 8 }}>
+            <div className="category-page-all"  style={{ height : window.screen.height}}>
                 <div className="list-category" style={{ flex: 1 }}>
                     <label className="container-heading">DANH MỤC SẢN PHẨM</label>
                     {
                         categorys && categorys.map(e => makeCategoryItem(e.id, e.name))
                     }
                 </div>
-                <div style={{ flex: 5 , padding : "0 10px 0 10px"}}>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
-                        {products && products.map(e => <ProductItem id={e.id} image={e.displayImage} name={e.name}></ProductItem>)}
+                <div className="list-product-category">
+                    <div className="list-product">
+                        {products && products.map(e => <ProductItem id={e.id} image={e.displayImage} name={e.name} price={e.price}></ProductItem>)}
                     </div>
                 </div>
 

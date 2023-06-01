@@ -2,3 +2,9 @@ button.btn-modal {
     border-radius: 10px;
     margin-left: 1000px;
 }
+
+.cart-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
